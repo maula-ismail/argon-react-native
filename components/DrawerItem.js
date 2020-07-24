@@ -19,22 +19,22 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : argonTheme.COLORS.PRIMARY}
           />
         );
-      case "Elements":
+      case "Pengujian":
         return (
-          <Icon
-            name="map-big"
-            family="ArgonExtra"
+          <Icon 
+            name="dashboard"
+            family="ExtraAntDesign"
             size={14}
-            color={focused ? "white" : argonTheme.COLORS.ERROR}
+            color={focused ? "white" : argonTheme.COLORS.INFO}
           />
         );
-      case "Articles":
+      case "PraUji":
         return (
           <Icon
-            name="spaceship"
-            family="ArgonExtra"
+            name="ruler"
+            family="ExtraMaterialCommunityIcons"
             size={14}
-            color={focused ? "white" : argonTheme.COLORS.PRIMARY}
+            color={focused ? "white" : argonTheme.COLORS.INFO}
           />
         );
       case "Profile":
@@ -43,27 +43,27 @@ class DrawerItem extends React.Component {
             name="chart-pie-35"
             family="ArgonExtra"
             size={14}
-            color={focused ? "white" : argonTheme.COLORS.WARNING}
+            color={focused ? "white" : argonTheme.COLORS.ERROR}
           />
         );
-      case "Account":
+      case "Foto":
         return (
           <Icon
-            name="calendar-date"
-            family="ArgonExtra"
+            name="camera"
+            family="ExtraIonicons"
             size={14}
             color={focused ? "white" : argonTheme.COLORS.INFO}
           />
         );
-      case "Getting Started":
-        return (<Icon
-          name="spaceship"
-          family="ArgonExtra"
-          size={14}
-          color={focused ? "white" : "rgba(0,0,0,0.5)"}
-        />);
-      case "Log out":
-        return <Icon />;
+      case "LogOut":
+        return (
+          <Icon
+            name="camera"
+            family="ExtraIonicons"
+            size={14}
+            color={focused ? "white" : argonTheme.COLORS.ERROR}
+          />
+        );
       default:
         return null;
     }
@@ -81,7 +81,7 @@ class DrawerItem extends React.Component {
       <TouchableOpacity
         style={{ height: 60 }}
         onPress={() =>
-          title == "Getting Started"
+          title == "WebNya" //jika ada exception
             ? Linking.openURL(
                 "https://demos.creative-tim.com/argon-pro-react-native/docs/"
               ).catch(err => console.error("An error occurred", err))

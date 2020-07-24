@@ -4,15 +4,8 @@ import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 import { Icon } from 'galio-framework';
 
 import argonConfig from '../assets/config/argon.json';
-
-import ExtraIonicons from 'react-native-vector-icons/Ionicons';
-import ExtraAntDesign from 'react-native-vector-icons/AntDesign';
-import ExtraMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
 const ArgonExtra = require('../assets/font/argon.ttf');
 const IconArgonExtra = createIconSetFromIcoMoon(argonConfig, 'ArgonExtra');
-// const IconExtraIonicons = createIconSetFromIcoMoon(argonConfig, 'ExtraIonicons');
-// const IconExtraMaterialCommunityIcons = createIconSetFromIcoMoon(argonConfig, 'ExtraMaterialCommunityIcons');
 
 class IconExtra extends React.Component {
   state = {
@@ -30,15 +23,6 @@ class IconExtra extends React.Component {
     if (name && family && this.state.fontLoaded) {
       if (family === 'ArgonExtra') {
         return <IconArgonExtra name={name} family={family} {...rest} />;
-      }
-      if (family === 'ExtraIonicons') {
-        return <ExtraIonicons name={Platform.OS === "ios" ? `ios-${name}` : `md-${name}`} {...rest} />;
-      }
-      if (family === 'ExtraAntDesign') {
-        return <ExtraAntDesign name={name} family={family} {...rest} />;
-      }
-      if (family === 'ExtraMaterialCommunityIcons') {
-        return <ExtraMaterialCommunityIcons name={name} family={family} {...rest} />;
       }
       return <Icon name={name} family={family} {...rest} />;
     }
