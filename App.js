@@ -5,6 +5,7 @@ import { useFonts } from '@use-expo/font';
 import { Asset } from "expo-asset";
 import { Block, GalioProvider } from "galio-framework";
 import { NavigationContainer } from "@react-navigation/native";
+// import * as firebase from "firebase";
 
 // Before rendering any navigation stack
 import { enableScreens } from "react-native-screens";
@@ -23,6 +24,19 @@ const assetImages = [
   Images.iOSLogo,
   Images.androidLogo
 ];
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDZV6TZHtT9VirNLBbPTHpyb4OeMKcTHv8",
+//   authDomain: "pkb-sidekick.firebaseapp.com",
+//   databaseURL: "https://pkb-sidekick.firebaseio.com",
+//   projectId: "pkb-sidekick",
+//   storageBucket: "pkb-sidekick.appspot.com",
+//   messagingSenderId: "790713500148",
+//   appId: "1:790713500148:web:2b293938a512925a6d39a1",
+//   measurementId: "G-EKCX6ED7EV"
+// };
+
+// firebase.initializeApp(firebaseConfig);
 
 // cache product images
 articles.map(article => assetImages.push(article.image));

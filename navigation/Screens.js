@@ -158,7 +158,7 @@ function AppStack(props) {
       <Drawer.Screen name="PraUji" component={PraUjiStack} />
       <Drawer.Screen name="Pengujian" component={PengujianStack} />
       <Drawer.Screen name="Profile" component={FotoStack} />
-      <Drawer.Screen name="LogOut" component={PraUjiStack} />
+      <Drawer.Screen name="LogOut" component={OnboardingStack} />
     </Drawer.Navigator>
   );
 }

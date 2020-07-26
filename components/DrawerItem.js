@@ -58,7 +58,7 @@ class DrawerItem extends React.Component {
       case "LogOut":
         return (
           <Icon
-            name="camera"
+            name="power"
             family="ExtraIonicons"
             size={14}
             color={focused ? "white" : argonTheme.COLORS.ERROR}

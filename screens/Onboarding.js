@@ -6,12 +6,18 @@ import {
   StatusBar,
   Dimensions
 } from "react-native";
+import { Icon, Input} from "../components/";
 import { Block, Button, Text, theme } from "galio-framework";
 
 const { height, width } = Dimensions.get("screen");
 
 import argonTheme from "../constants/Theme";
 import Images from "../constants/Images";
+
+let state={
+    email:"",
+    password:""
+  }
 
 class Onboarding extends React.Component {
   render() {
@@ -34,24 +40,57 @@ class Onboarding extends React.Component {
               <Block style={styles.title}>
                 <Block>
                   <Text color="white" size={60}>
-                    PKB-SideKick
+                    PKB
                   </Text>
-                </Block>
-                <Block>
                   <Text color="white" size={60}>
-                    
+                    SideKick
                   </Text>
                 </Block>
                 <Block style={styles.subTitle}>
                   <Text color="white" size={16}>
-                    Teman [P]engujian [K]endaraan [B]ermotor
+                    [P]engujian [K]endaraan [B]ermotor
                   </Text>
                 </Block>
               </Block>
               <Block center>
+                <Input
+                  placeholder="Email ..."
+                  color={theme.COLORS.THEME} 
+                  style={{ borderColor: theme.COLORS.THEME }} 
+                  placeholderTextColor={theme.COLORS.THEME}
+                  iconContent={
+                    <Icon
+                      size={11}
+                      style={{ marginRight: 10 }}
+                      color={argonTheme.COLORS.ICON}
+                      name="email"
+                      family="ExtraMaterialCommunityIcons"
+                    />
+                  }
+                />
+                <Input
+                  placeholder="Password ..."
+                  color={theme.COLORS.THEME} 
+                  style={{ borderColor: theme.COLORS.THEME }} 
+                  placeholderTextColor={theme.COLORS.THEME}
+                  password 
+                  viewPass
+                  iconContent={
+                    <Icon
+                      size={11}
+                      style={{ marginRight: 10 }}
+                      color={argonTheme.COLORS.ICON}
+                      secureTextEntry={true}
+                      name="login"
+                      family="ExtraMaterialCommunityIcons"
+                    />
+                  }
+                />
                 <Button
+                  round 
+                  size="small" 
+                  color="success"
                   style={styles.button}
-                  color={argonTheme.COLORS.SECONDARY}
                   onPress={() => navigation.navigate("App")}
                   textStyle={{ color: argonTheme.COLORS.BLACK }}
                 >
