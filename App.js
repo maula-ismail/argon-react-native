@@ -5,7 +5,6 @@ import { useFonts } from '@use-expo/font';
 import { Asset } from "expo-asset";
 import { Block, GalioProvider } from "galio-framework";
 import { NavigationContainer } from "@react-navigation/native";
-// import * as firebase from "firebase";
 
 // Before rendering any navigation stack
 import { enableScreens } from "react-native-screens";
@@ -24,19 +23,6 @@ const assetImages = [
   Images.iOSLogo,
   Images.androidLogo
 ];
-
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDZV6TZHtT9VirNLBbPTHpyb4OeMKcTHv8",
-//   authDomain: "pkb-sidekick.firebaseapp.com",
-//   databaseURL: "https://pkb-sidekick.firebaseio.com",
-//   projectId: "pkb-sidekick",
-//   storageBucket: "pkb-sidekick.appspot.com",
-//   messagingSenderId: "790713500148",
-//   appId: "1:790713500148:web:2b293938a512925a6d39a1",
-//   measurementId: "G-EKCX6ED7EV"
-// };
-
-// firebase.initializeApp(firebaseConfig);
 
 // cache product images
 articles.map(article => assetImages.push(article.image));
@@ -91,45 +77,3 @@ export default props => {
     );
   }
 }
-
-// export default class App extends React.Component {
-//   state = {
-//     isLoadingComplete: false
-//   };
-
-//   render() {
-//     if (!this.state.isLoadingComplete) {
-//       return (
-//         <AppLoading
-//           startAsync={this._loadResourcesAsync}
-//           onError={this._handleLoadingError}
-//           onFinish={this._handleFinishLoading}
-//         />
-//       );
-//     } else {
-//       return (
-//         <NavigationContainer>
-//           <GalioProvider theme={argonTheme}>
-//             <Block flex>
-//               <Screens />
-//             </Block>
-//           </GalioProvider>
-//         </NavigationContainer>
-//       );
-//     }
-//   }
-
-//   _loadResourcesAsync = async () => {
-//     return Promise.all([...cacheImages(assetImages)]);
-//   };
-
-//   _handleLoadingError = error => {
-//     // In this case, you might want to report the error to your error
-//     // reporting service, for example Sentry
-//     console.warn(error);
-//   };
-
-//   _handleFinishLoading = () => {
-//     this.setState({ isLoadingComplete: true });
-//   };
-// }

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import {
   ImageBackground,
   Image,
@@ -6,23 +7,28 @@ import {
   StatusBar,
   Dimensions
 } from "react-native";
-import { Icon, Input} from "../components/";
+
 import { Block, Button, Text, theme } from "galio-framework";
+
+import { Icon, Input } from "../components";
+
+import argonTheme from "../constants/Theme";
+
+import Images from "../constants/Images";
 
 const { height, width } = Dimensions.get("screen");
 
-import argonTheme from "../constants/Theme";
-import Images from "../constants/Images";
-
-let state={
-    email:"",
-    password:""
-  }
+function MyEmailAndPassword() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+};
 
 class Onboarding extends React.Component {
   render() {
     const { navigation } = this.props;
-
+    const onLoginPress = () => {
+    }
+    
     return (
       <Block flex style={styles.container}>
         <StatusBar hidden />
@@ -31,9 +37,6 @@ class Onboarding extends React.Component {
             source={Images.Onboarding}
             style={{ height, width, zIndex: 1 }}
           />
-        </Block>
-        <Block center>
-          <Image source={Images.LogoOnboarding} style={styles.logo} />
         </Block>
         <Block flex space="between" style={styles.padded}>
             <Block flex space="around" style={{ zIndex: 2 }}>
@@ -52,52 +55,58 @@ class Onboarding extends React.Component {
                   </Text>
                 </Block>
               </Block>
-              <Block center>
-                <Input
-                  placeholder="Email ..."
-                  color={theme.COLORS.THEME} 
-                  style={{ borderColor: theme.COLORS.THEME }} 
-                  placeholderTextColor={theme.COLORS.THEME}
-                  iconContent={
-                    <Icon
-                      size={11}
-                      style={{ marginRight: 10 }}
-                      color={argonTheme.COLORS.ICON}
-                      name="email"
-                      family="ExtraMaterialCommunityIcons"
-                    />
-                  }
-                />
-                <Input
-                  placeholder="Password ..."
-                  color={theme.COLORS.THEME} 
-                  style={{ borderColor: theme.COLORS.THEME }} 
-                  placeholderTextColor={theme.COLORS.THEME}
-                  password 
-                  viewPass
-                  iconContent={
-                    <Icon
-                      size={11}
-                      style={{ marginRight: 10 }}
-                      color={argonTheme.COLORS.ICON}
-                      secureTextEntry={true}
-                      name="login"
-                      family="ExtraMaterialCommunityIcons"
-                    />
-                  }
-                />
+              <Block>
+                      <Input
+        // placeholder="Email ..."
+        // color={theme.COLORS.THEME} 
+        // style={{ borderColor: theme.COLORS.THEME }} 
+        // placeholderTextColor={theme.COLORS.THEME}
+        // onChangeText={(text) => setEmail(text)}
+        // value={email}
+        // iconContent={
+        //   <Icon
+        //     size={11}
+        //     style={{ marginRight: 10 }}
+        //     color={argonTheme.COLORS.ICON}
+        //     name="email"
+        //     family="ExtraMaterialCommunityIcons"
+        //   />
+        // }
+      />
+      <Input
+        // placeholder="Password ..."
+        // color={theme.COLORS.THEME} 
+        // style={{ borderColor: theme.COLORS.THEME }} 
+        // placeholderTextColor={theme.COLORS.THEME}
+        // onChangeText={(text) => setPassword(text)}
+        // value={password}
+        // password 
+        // viewPass
+        // iconContent={
+        //   <Icon
+        //     size={11}
+        //     style={{ marginRight: 10 }}
+        //     color={argonTheme.COLORS.ICON}
+        //     name="lastpass"
+        //     family="ExtraMaterialCommunityIcons"
+        //   />
+        // }
+      />
+              </Block>
+              <Block>
                 <Button
                   round 
                   size="small" 
-                  color="success"
+                  color="info"
                   style={styles.button}
-                  onPress={() => navigation.navigate("App")}
+                  onPress={() => onLoginPress()}
                   textStyle={{ color: argonTheme.COLORS.BLACK }}
-                >
-                  Masuk
+                > Masuk
                 </Button>
               </Block>
-          </Block>
+              <Block>
+              </Block>
+            </Block>
         </Block>
       </Block>
     );
@@ -112,7 +121,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.SIZES.BASE * 2,
     position: "relative",
     bottom: theme.SIZES.BASE,
-    zIndex: 2,
+    zIndex: 2
   },
   button: {
     width: width - theme.SIZES.BASE * 4,
@@ -128,7 +137,7 @@ const styles = StyleSheet.create({
     marginTop: '-50%'
   },
   title: {
-    marginTop:'-5%'
+    marginTop: '-5%'
   },
   subTitle: {
     marginTop: 20

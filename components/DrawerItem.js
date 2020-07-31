@@ -64,6 +64,15 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : argonTheme.COLORS.ERROR}
           />
         );
+      case "SignUp":
+        return (
+          <Icon
+            name="power"
+            family="ExtraIonicons"
+            size={14}
+            color={focused ? "white" : argonTheme.COLORS.ERROR}
+          />
+        );
       default:
         return null;
     }

@@ -14,6 +14,9 @@ import Profile from "../screens/Profile";
 import Register from "../screens/Register";
 import Elements from "../screens/Elements";
 import PraUji from "../screens/PraUji";
+import Login from "../screens/Login";
+import SignUp from "../screens/SignUp";
+
 // drawer
 import CustomDrawerContent from "./Menu";
 
@@ -107,7 +110,53 @@ function HomeStack(props) {
   );
 }
 
-export default function OnboardingStack(props) {
+function SignUpStack(props) {
+  return (
+    <Stack.Navigator mode="card" headerMode="none">
+      <Stack.Screen
+        name="SignUp"
+        component={SignUp}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title="SignUp"
+              options
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" }
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+export default function LoginStack(props) {
+  return (
+    <Stack.Navigator mode="card" headerMode="none">
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title="Login"
+              options
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" }
+        }}
+      />
+      <Stack.Screen name="SignUp" component={SignUpStack} />
+      <Stack.Screen name="App" component={AppStack} />
+    </Stack.Navigator>
+  );
+}
+
+function OnboardingStack(props) {
   return (
     <Stack.Navigator mode="card" headerMode="none">
       <Stack.Screen
@@ -158,7 +207,9 @@ function AppStack(props) {
       <Drawer.Screen name="PraUji" component={PraUjiStack} />
       <Drawer.Screen name="Pengujian" component={PengujianStack} />
       <Drawer.Screen name="Profile" component={FotoStack} />
-      <Drawer.Screen name="LogOut" component={OnboardingStack} />
+      <Drawer.Screen name="LogOut" component={LoginStack} />
+      <Drawer.Screen name="login" component={LoginStack} />
+      <Drawer.Screen name="SignUp" component={SignUpStack} />
     </Drawer.Navigator>
   );
 }
