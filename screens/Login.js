@@ -22,6 +22,11 @@ const { height, width } = Dimensions.get("screen");
 
 export default class Login extends React.Component {
   renderLogin = () => {
+    const onLoginPress = () => {
+      this.setState({isLoggedIn: true});
+      this.saveData();
+      // this.showData();
+    };
     const onSignUpPress = () => {
       this.GotoSignUp();
     };
@@ -164,10 +169,6 @@ export default class Login extends React.Component {
 
   render(){
     const { navigation } = this.props;
-    const onLoginPress = () => {
-      this.setState({isLoggedIn: true});
-      this.saveData();
-    };
     return (
       <Block flex center style={styles.container}>
         {this.renderLogin()}
